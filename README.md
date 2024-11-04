@@ -1,10 +1,10 @@
 # VPNizer - VPN Connection Manager For Bash
+![GitHub License](https://img.shields.io/github/license/Tejaromalius/VPNizer?style=flat&label=License)
 
-This simple Bash script helps you manage your VPN connections easily using `nmcli`. 
+VPNizer is a script to manage VPN connections using `nmcli` through a simple TUI.
 
-## Requirements
+To install, use the provided Makefile:
 
-To use this script, you need:
-- A Unix-like operating system (Linux, macOS, etc.) that has BASH.
-- The `nmcli` command-line tool installed. *(If it's not installed, the script will prompt you to install it.)*
-
+```bash
+make install
+```
