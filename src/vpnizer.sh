@@ -131,7 +131,7 @@ _increment_selected() {
   echo -n $selected
 }
 # <<< UTILS <<<
-# >>> Main >>>
+# >>> MAIN >>>
 if ! command -v nmcli &>/dev/null; then
   logit "error" "'nmcli' is not installed. Please install it before running this script."
   exit 1
@@ -154,6 +154,11 @@ if nmcli c show --active | grep -q vpn; then
 fi
 
 mapfile -t connections < <(nmcli c show | grep vpn | awk '{print $1}')
+
+if [ ${#connections[@]} -eq 0 ]; then
+  logit "error" "No VPN connections found. Add a VPN connection and try again."
+  exit 1
+fi
 
 option=$(list "Select a VPN connection to connect to:" "${connections[@]}")
 
